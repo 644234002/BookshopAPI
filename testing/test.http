@@ -1,0 +1,19 @@
+### -------- Get All Books
+GET http://localhost:3000/books HTTP/1.1
+content-type: application/json
+
+### -------- Create Book
+POST http://localhost:3000/books HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Data Mining",
+    "isbn": "1234567890",
+    "pageCount": 304,
+    "publishedDate": "2023-09-14T00:00:00.000-0700",
+    "thumbnailUrl": "https://raw.githubusercontent.com/kesinee-bo/sp01/master/Books/unavailable.jpg",
+    "shortDescription": "Great Book...Highly recommended. -- Choice Magazine",
+    "author": "64",
+    "category": "Machine Learning",
+    "price": 100
+}
