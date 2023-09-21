@@ -124,6 +124,30 @@ app.post( '/books',  function (req, res)  {
 
 
 // 3) -------- Get book by id
+app.get('/books/:bookid',  function (req, res)  {
+
+  try
+  {
+
+
+      res.setHeader('Content-Type', 'application/json');
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+      var bookid = Number(req.params.bookid);
+
+      db.query('SELECT * FROM books where bookid=?', bookid.toString(),function (error, results, fields) {
+          if (error) throw error;
+          return res.send({ error: false, message: 'book id =' + bookid.toString(), data: results });
+      });
+
+    } catch {
+
+      return res.status(401).send()
+
+    }
+
+});
 
 
 
@@ -133,7 +157,31 @@ app.post( '/books',  function (req, res)  {
 
 
 // 4) -------- Delete book by id
+app.delete( '/books/:bookid',  function (req, res)  {
 
+  try
+  {
+
+    res.setHeader('Content-Type', 'application/json');
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+    var bookid = Number(req.params.bookid);
+
+    db.query('DELETE FROM books where bookid=?', bookid,function (error, results, fields) {
+        if (error) throw error;
+        return res.send({ error: false, message: 'Delete book id =' + bookid.toString(), data: results });
+    });
+
+
+  } catch {
+
+    return res.status(401).send()
+
+  }
+
+
+});
 
 
 
@@ -143,7 +191,52 @@ app.post( '/books',  function (req, res)  {
 
 
 // 5) -------- Edit book by id
+app.put( '/books/:bookid',  function (req, res)  {
 
+  try
+  {
+
+    var title = req.body.title;
+    var price=req.body.price;
+    var isbn = req.body.isbn;
+    var pageCount = req.body.pageCount;
+    var publishedDate=req.body.publishedDate;
+    var thumbnailUrl=req.body.thumbnailUrl;
+    var shortDescription=req.body.shortDescription;
+    var author=req.body.author;
+    var category=req.body.category;
+
+    res.setHeader('Content-Type', 'application/json');
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
+    var bookid = Number(req.params.bookid);
+
+    db.query(`UPDATE books
+              SET
+                    title='${title}',
+                    price=${price},
+                    isbn= '${isbn}',
+                    pageCount=${pageCount},
+                    publishedDate='${publishedDate}',
+                    thumbnailUrl='${thumbnailUrl}',
+                    shortDescription='${shortDescription}',
+                    author='${author}',
+                    category= '${category}'
+              WHERE bookid=?`, bookid,function (error, results, fields) {
+        if (error) throw error;
+        return res.send({ error: false, message: 'Edit book id =' + bookid.toString(), data: results });
+    });
+
+
+  } catch {
+
+    return res.status(401).send()
+
+  }
+
+
+});
 
 
 
