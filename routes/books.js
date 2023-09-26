@@ -13,8 +13,8 @@ router.route('/')
 // -------- Route for Get book by id, Delete book by id and Edit book by id
 router.route('/:bookid/')
     .get(verify,booksController.getBookById)
-    .put(verify,booksController.uploadBookCover)
     .delete(verify,booksController.deleteBookById)
+    .put(verify,booksController.updateBookById)
 
 
 router.route('/cover/:bookid/')

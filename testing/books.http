@@ -1,8 +1,9 @@
 GET http://localhost:3000/api/v2/books HTTP/1.1
 content-type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxOSIsInBhc3N3b3JkIjoiJDJhJDEwJDhXYmJsMXFEclQweDhvcUguMXNNM3VYYXFwbGpwQ2NrdTdrLlE4R0l1cEovZVcxT1dhcEQyIiwiaWF0IjoxNjk1Mjc0NzM0fQ.OK8DlfwfPW0LKdfhDGo_YzGIuN1o_EGpTtwa2eRmdYM
+
 ### -------- Get Book by Book Id
-GET http://localhost:3000/api/v2/books/3 HTTP/1.1
+GET http://localhost:3000/api/v2/books/70 HTTP/1.1
 content-type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxOSIsInBhc3N3b3JkIjoiJDJhJDEwJDhXYmJsMXFEclQweDhvcUguMXNNM3VYYXFwbGpwQ2NrdTdrLlE4R0l1cEovZVcxT1dhcEQyIiwiaWF0IjoxNjk1Mjc0NzM0fQ.OK8DlfwfPW0LKdfhDGo_YzGIuN1o_EGpTtwa2eRmdYM
 
@@ -12,7 +13,7 @@ content-type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxOSIsInBhc3N3b3JkIjoiJDJhJDEwJDhXYmJsMXFEclQweDhvcUguMXNNM3VYYXFwbGpwQ2NrdTdrLlE4R0l1cEovZVcxT1dhcEQyIiwiaWF0IjoxNjk1Mjc0NzM0fQ.OK8DlfwfPW0LKdfhDGo_YzGIuN1o_EGpTtwa2eRmdYM
 
 {
-    "title": "Data Mining",
+    "title": "Data MiningX010X",
     "isbn": "1234567890",
     "pageCount": 304,
     "publishedDate": "2023-09-14T00:00:00.000-0700",
@@ -31,7 +32,27 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZ
 Content-Disposition: form-data; name="book_cover"; filename="book_upload_cover_picture.jpg"
 Content-Type: image/jpeg
 
-< book_upload_cover_picture.jpg
+< book_upload_cover_picture.jpg>
 --boundary--
 
-###
+### -------- Delete Book by Book Id
+DELETE http://localhost:3000/api/v2/books/65 HTTP/1.1
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxOSIsInBhc3N3b3JkIjoiJDJhJDEwJDhXYmJsMXFEclQweDhvcUguMXNNM3VYYXFwbGpwQ2NrdTdrLlE4R0l1cEovZVcxT1dhcEQyIiwiaWF0IjoxNjk1Mjc0NzM0fQ.OK8DlfwfPW0LKdfhDGo_YzGIuN1o_EGpTtwa2eRmdYM
+
+### -------- Edit Book
+PUT http://localhost:3000/api/v2/books/66 HTTP/1.1
+content-type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxOSIsInBhc3N3b3JkIjoiJDJhJDEwJDhXYmJsMXFEclQweDhvcUguMXNNM3VYYXFwbGpwQ2NrdTdrLlE4R0l1cEovZVcxT1dhcEQyIiwiaWF0IjoxNjk1Mjc0NzM0fQ.OK8DlfwfPW0LKdfhDGo_YzGIuN1o_EGpTtwa2eRmdYM
+
+{
+    "title": "Data Mining EIEI",
+    "isbn": "1234567890",
+    "pageCount": 304,
+    "publishedDate": "2023-09-14T00:00:00.000-0700",
+    "thumbnailUrl": "https://raw.githubusercontent.com/kesinee-bo/sp01/master/Books/unavailable.jpg",
+    "shortDescription": "Greate Book...Highly recommended. -- Choice Magazine",
+    "author": "64",
+    "category": "Machine Learning",
+    "price": 100
+}

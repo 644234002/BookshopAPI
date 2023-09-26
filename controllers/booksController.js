@@ -257,5 +257,6 @@ module.exports = {
   addBook,
   getBookById,
   deleteBookById,
-  uploadBookCover
+  uploadBookCover,
+  updateBookById
 };
